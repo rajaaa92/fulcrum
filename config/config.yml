@@ -3,6 +3,7 @@ defaults: &defaults
     login:          <%= ENV['SENDGRID_USERNAME'] %>
     password:       <%= ENV['SENDGRID_PASSWORD'] %>
     domain:         <%= ENV['SENDGRID_DOMAIN'] %>
+  sender_email: no-reply@fulcrum-for-juvelingo.herokuapp.com
 
 development:
   <<: *defaults

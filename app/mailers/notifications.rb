@@ -4,7 +4,7 @@ class Notifications < ActionMailer::Base
     @story = story
     @delivered_by = delivered_by
 
-    mail :to => story.requested_by.email, :from => delivered_by.email,
+    mail :to => story.requested_by.email, :from => AppConfig.sender_email,
       :subject => "[#{story.project.name}] Your story '#{story.title}' has been delivered for acceptance."
   end
 
@@ -12,7 +12,7 @@ class Notifications < ActionMailer::Base
     @story = story
     @accepted_by = accepted_by
 
-    mail :to => story.owned_by.email, :from => accepted_by.email,
+    mail :to => story.owned_by.email, :from => AppConfig.sender_email,
       :subject => "[#{story.project.name}] #{accepted_by.name} ACCEPTED your story '#{story.title}'."
   end
 
@@ -20,7 +20,7 @@ class Notifications < ActionMailer::Base
     @story = story
     @accepted_by = rejected_by
 
-    mail :to => story.owned_by.email, :from => rejected_by.email,
+    mail :to => story.owned_by.email, :from => AppConfig.sender_email,
       :subject => "[#{story.project.name}] #{rejected_by.name} REJECTED your story '#{story.title}'."
   end
 
@@ -31,7 +31,7 @@ class Notifications < ActionMailer::Base
 
     @notify_emails = notify_users.map(&:email)
 
-    mail :to => @notify_emails, :from => @note.user.email,
+    mail :to => @notify_emails, :from => AppConfig.sender_email,
       :subject => "[#{@story.project.name}] New comment on '#{@story.title}'"
   end
 end
