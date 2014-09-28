@@ -1,4 +1,11 @@
-sendgrid:
-  login:          <%= ENV['SENDGRID_USERNAME'] %>
-  password:       <%= ENV['SENDGRID_PASSWORD'] %>
-  domain:         <%= ENV['SENDGRID_DOMAIN'] %>
+defaults: &defaults
+  sendgrid:
+    login:          <%= ENV['SENDGRID_USERNAME'] %>
+    password:       <%= ENV['SENDGRID_PASSWORD'] %>
+    domain:         <%= ENV['SENDGRID_DOMAIN'] %>
+
+development:
+  <<: *defaults
+
+production:
+  <<: *defaults
