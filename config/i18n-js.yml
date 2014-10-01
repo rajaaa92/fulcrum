@@ -1,2 +1,2 @@
 translations:
-- file: 'assets/javascripts/i18n/translations.js'
+- file: 'public/javascripts/translations.js'
