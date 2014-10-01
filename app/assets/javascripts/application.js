@@ -22,5 +22,6 @@
 //= require bootstrap-popover
 //= require tag-it
 //= require i18n
+//= require i18n/translations
 //= require locales
 //= require_tree .
